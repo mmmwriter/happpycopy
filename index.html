@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>계좌 복사됨</title>
+  <script>
+    const text = decodeURIComponent(window.location.search.split('=')[1] || '신한은행 110-414-056104');
+    navigator.clipboard.writeText(text).then(() => {
+      alert('📋 계좌번호가 복사되었습니다:\n\n' + text);
+    });
+  </script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 80px; background: #f5f5f5; }
+    h2 { font-size: 24px; }
+    p { font-size: 18px; color: #555; }
+  </style>
+</head>
+<body>
+  <h2>💳 계좌번호 복사 완료!</h2>
+  <p>은행 앱에서 붙여넣기 하세요 🙏</p>
+</body>
+</html>
