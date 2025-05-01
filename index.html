@@ -1,22 +1,38 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>계좌 복사됨</title>
-  <script>
-    const text = decodeURIComponent(window.location.search.split('=')[1] || '신한은행 110-414-056104');
-    navigator.clipboard.writeText(text).then(() => {
-      alert('📋 계좌번호가 복사되었습니다:\n\n' + text);
-    });
-  </script>
+  <meta charset="UTF-8" />
+  <title>계좌번호 복사</title>
   <style>
     body { font-family: sans-serif; text-align: center; padding: 80px; background: #f5f5f5; }
     h2 { font-size: 24px; }
     p { font-size: 18px; color: #555; }
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body>
-  <h2>💳 계좌번호 복사 완료!</h2>
-  <p>은행 앱에서 붙여넣기 하세요 🙏</p>
+  <h2>💳 계좌번호 복사</h2>
+  <p>신한은행 110-414-056104</p>
+  <button onclick="copyText()">📋 복사하기</button>
+
+  <script>
+    function copyText() {
+      const text = "신한은행 110-414-056104";
+      navigator.clipboard.writeText(text).then(() => {
+        alert("계좌번호가 복사되었습니다:\n" + text);
+      }).catch(err => {
+        alert("복사 실패. 수동으로 복사해주세요 😥");
+      });
+    }
+  </script>
 </body>
 </html>
